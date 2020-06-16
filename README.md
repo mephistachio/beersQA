@@ -10,7 +10,7 @@ Beers made with React Hooks + Redux and Parcel.
 
 All functions are returning dummy objects in order to allow you test the whole app in case you cannot complete some exercices
 
-### Paginations
+### Pagination
 
 (in utils/pagination)
 export const getNumPages = ({ totalElements, elementsPerPage })
@@ -27,7 +27,7 @@ export const getBeersByBrewedFromTo = ({ beers = [], brewedFrom, brewedTo })
 
 - npm install
 
-## build
+## Build
 
 - npm run dev
 
