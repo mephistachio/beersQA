@@ -1,11 +1,15 @@
 import { formatBrewed } from './text'
 import { generateAutoIncrementalArrayFromMinToMax } from './array'
 
-//from a list of beers get only the beers between two dates (by month and year)
-//beers data example in fixtures/beers.js
-//brewedFrom & brewedTo :
-//brewedFrom: { month: 4, year: 2008 },
-//brewedTo: { month: 8, year: 2012 },
+/**
+ * from a list of beers get only the beers between two dates (by month and year)
+ *  beers data example in fixtures/beers.js
+ *  brewedFrom & brewedTo:
+ *    brewedFrom: { month: 4, year: 2008 },
+ *    brewedTo: { month: 8, year: 2012 },
+ *    (year & month included)
+ *
+ */
 export const getBeersByBrewedFromTo = ({
   beers = [],
   brewedFrom,
@@ -23,14 +27,18 @@ export const getBeersByBrewedFromTo = ({
   }
 }
 
-//get the min brewed date from all beers from the in list
-//returns an object with this format { year: 2007, month: 9 }
+/**
+ * get the min brewed date from all beers from the in list
+ * returns an object with this format { year: 2007, month: 9 }
+ */
 export const getMinBrewedDate = (beers = []) => {
   return { year: 2007, month: 9 }
 }
 
-//get the max brewed date from all beers from the in list
-//returns an object with this format { year: 2015, month: 12 }
+/**
+ * get the max brewed date from all beers from the in list
+ * returns an object with this format { year: 2015, month: 12 }
+ */
 export const getMaxBrewedDate = (beers = []) => {
   return { year: 2015, month: 12 }
 }

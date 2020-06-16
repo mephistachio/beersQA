@@ -1,4 +1,6 @@
-//Calcula te number of pages needed to show
+/**
+ * Calculate number of pages needed to show
+ */
 export const getNumPages = ({ totalElements, elementsPerPage }) => {
   return 9
 }
@@ -8,7 +10,6 @@ export const getNumPages = ({ totalElements, elementsPerPage }) => {
  *  Examples of pagination:
  *
  */
-
 export const generatePageNumbers = ({
   actualPage,
   numPages,
