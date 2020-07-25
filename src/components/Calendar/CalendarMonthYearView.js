@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import Calendar from './Calendar';
-import months from '../../data/months';
+import React from 'react'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
+import Calendar from './Calendar'
+import months from '../../data/months'
 
 const CalendarMonthYearViewContainer = styled.div`
   display: flex;
@@ -15,14 +15,14 @@ const CalendarMonthYearViewContainer = styled.div`
     font-family: 'HelveticaNeue-Bold';
     color: '#000';
   }
-`;
+`
 
 const Month = styled.label`
   font-size: 14px;
-`;
+`
 const Year = styled.label`
   font-size: 17px;
-`;
+`
 
 const CalendarMonthYearView = ({ month, year }) => {
   return (
@@ -32,14 +32,14 @@ const CalendarMonthYearView = ({ month, year }) => {
         {year && <Year>{year}</Year>}
       </CalendarMonthYearViewContainer>
     </Calendar>
-  );
-};
+  )
+}
 
 CalendarMonthYearView.propTypes = {
   month: PropTypes.number,
   year: PropTypes.number,
-};
+}
 
-CalendarMonthYearView.defaultProps = {};
+CalendarMonthYearView.defaultProps = {}
 
-export default CalendarMonthYearView;
+export default CalendarMonthYearView

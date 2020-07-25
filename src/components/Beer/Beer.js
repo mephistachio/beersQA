@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import PropTypes from "prop-types";
-import { shortText } from "../../utils/text";
+import React from 'react'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
+import { shortText } from '../../utils/text'
 
 const BeerContainer = styled.section`
   border: 1px solid #000;
@@ -10,20 +10,20 @@ const BeerContainer = styled.section`
 
   display: grid;
   grid-template-columns: auto auto;
-  font-family: "HelveticaNeue-Thin";
+  font-family: 'HelveticaNeue-Thin';
   padding: 20px;
 
   label {
-    font-family: "HelveticaNeue-ThinItalic";
+    font-family: 'HelveticaNeue-ThinItalic';
     font-size: 11px;
   }
-`;
+`
 
 const BeerData = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-`;
+`
 
 const BeerText = styled.div`
   width: 90%;
@@ -45,7 +45,7 @@ const BeerText = styled.div`
   font-family: 'HelveticaNeue-Thin';
   font-size: 11px;
   }
-`;
+`
 
 const BrewedDate = styled.div`
   justify-self: start;
@@ -53,7 +53,7 @@ const BrewedDate = styled.div`
   display: flex;
 
   label {
-    font-family: "HelveticaNeue-Bold";
+    font-family: 'HelveticaNeue-Bold';
     padding-right: 2px;
     font-size: 13px;
   }
@@ -62,7 +62,7 @@ const BrewedDate = styled.div`
     padding: 0;
     margin: 0;
   }
-`;
+`
 const BeerImage = styled.div`
   display: flex;
   justify-content: center;
@@ -72,7 +72,7 @@ const BeerImage = styled.div`
     width: auto;
     object-fit: cover;
   }
-`;
+`
 
 const Description = styled.div`
   width: 100%;
@@ -80,7 +80,7 @@ const Description = styled.div`
   display: flex;
   justify-content: start;
   align-items: start;
-`;
+`
 
 const Beer = ({ name, tagline, first_brewed, description, image_url }) => {
   return (
@@ -100,8 +100,8 @@ const Beer = ({ name, tagline, first_brewed, description, image_url }) => {
         <img src={image_url} />
       </BeerImage>
     </BeerContainer>
-  );
-};
+  )
+}
 
 Beer.propTypes = {
   name: PropTypes.string.isRequired,
@@ -109,8 +109,8 @@ Beer.propTypes = {
   first_brewed: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   image_url: PropTypes.string.isRequired,
-};
+}
 
-Beer.defaultProps = {};
+Beer.defaultProps = {}
 
-export default Beer;
+export default Beer

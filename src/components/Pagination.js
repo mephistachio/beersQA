@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import React, { useState, useEffect } from 'react'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
-import BeerSVG from '../svg/beer.svg';
-import LeftSvg from '../svg/left.svg';
-import RightSvg from '../svg/right.svg';
-import DotsSvg from '../svg/dots.svg';
+import BeerSVG from '../svg/beer.svg'
+import LeftSvg from '../svg/left.svg'
+import RightSvg from '../svg/right.svg'
+import DotsSvg from '../svg/dots.svg'
 
-import { generatePageNumbers, getNumPages } from '../utils/pagination';
+import { generatePageNumbers, getNumPages } from '../utils/pagination'
 
 export const PaginationContainer = styled.section`
   display: flex;
@@ -42,11 +42,11 @@ export const PaginationContainer = styled.section`
       color: #ffd15b;
     }
   }
-`;
+`
 
 const BeerIcon = styled(BeerSVG)`
   position: absolute;
-`;
+`
 
 const Pagination = ({
   numberTotalElements,
@@ -54,37 +54,37 @@ const Pagination = ({
   defaultPageNumber,
   onClickPage,
 }) => {
-  const [actualPage, setActualPage] = useState(defaultPageNumber);
+  const [actualPage, setActualPage] = useState(defaultPageNumber)
   const numPages = getNumPages({
     totalElements: numberTotalElements,
     elementsPerPage: numberElementsPerPage,
-  });
+  })
 
   useEffect(() => {
-    onClickPage(actualPage);
-  }, [actualPage]);
+    onClickPage(actualPage)
+  }, [actualPage])
 
   if (actualPage > numPages) {
-    setActualPage(numPages);
+    setActualPage(numPages)
   }
 
   const { pages, first, last } = generatePageNumbers({
     actualPage,
     maxNumShowedPages: 7,
     numPages,
-  });
+  })
 
   const handleOnClickPage = (event) => {
-    setActualPage(parseInt(event.currentTarget.id));
-  };
+    setActualPage(parseInt(event.currentTarget.id))
+  }
 
   const handleOnClickNext = () => {
-    setActualPage(actualPage + 1);
-  };
+    setActualPage(actualPage + 1)
+  }
 
   const handleOnClickPrevious = () => {
-    setActualPage(actualPage - 1);
-  };
+    setActualPage(actualPage - 1)
+  }
 
   return (
     <PaginationContainer data-testid="pagination-container">
@@ -123,20 +123,20 @@ const Pagination = ({
         {actualPage !== numPages && <RightSvg width={16.43} />}
       </button>
     </PaginationContainer>
-  );
-};
+  )
+}
 
 Pagination.propTypes = {
   numberTotalElements: PropTypes.number.isRequired,
   numberElementsPerPage: PropTypes.number,
   defaultPageNumber: PropTypes.number,
   onClickPage: PropTypes.func,
-};
+}
 
 Pagination.defaultProps = {
   numberElementsPerPage: 5,
   defaultPageNumber: 1,
   onClickPage: () => {},
-};
+}
 
-export default Pagination;
+export default Pagination

@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
-import Calendar from './Calendar';
-import CheckSVG from '../../svg/check.svg';
-import monthsNames from '../../data/months';
+import Calendar from './Calendar'
+import CheckSVG from '../../svg/check.svg'
+import monthsNames from '../../data/months'
 
-import { getMonths } from '../../utils/filters';
+import { getMonths } from '../../utils/filters'
 
 const CalendarMonthYearSelectionContainer = styled.div`
   margin: 15% 0px 25%;
@@ -44,7 +44,7 @@ const CalendarMonthYearSelectionContainer = styled.div`
   .selected {
     opacity: 1;
   }
-`;
+`
 
 const CalendarMonthYearSelection = ({
   defaultSelectedMonth,
@@ -53,20 +53,20 @@ const CalendarMonthYearSelection = ({
   years,
   onClickCheck,
 }) => {
-  const [selectedMonth, setSelectedMonth] = useState(defaultSelectedMonth);
-  const [selectedYear, setSelectedYear] = useState(defaultSelectedYear);
+  const [selectedMonth, setSelectedMonth] = useState(defaultSelectedMonth)
+  const [selectedYear, setSelectedYear] = useState(defaultSelectedYear)
 
   const handleClickMonth = (event) => {
-    setSelectedMonth(parseInt(event.currentTarget.id));
-  };
+    setSelectedMonth(parseInt(event.currentTarget.id))
+  }
 
   const handleClickYear = (event) => {
-    setSelectedYear(parseInt(event.currentTarget.id));
-  };
+    setSelectedYear(parseInt(event.currentTarget.id))
+  }
 
   const handleClickOk = () => {
-    onClickCheck({ month: selectedMonth, year: selectedYear });
-  };
+    onClickCheck({ month: selectedMonth, year: selectedYear })
+  }
 
   return (
     <Calendar width={200}>
@@ -99,8 +99,8 @@ const CalendarMonthYearSelection = ({
         </button>
       </div>
     </Calendar>
-  );
-};
+  )
+}
 
 CalendarMonthYearSelection.propTypes = {
   defaultSelectedMonth: PropTypes.number.isRequired,
@@ -108,12 +108,12 @@ CalendarMonthYearSelection.propTypes = {
   months: PropTypes.arrayOf(PropTypes.number),
   years: PropTypes.arrayOf(PropTypes.number),
   onClickCheck: PropTypes.func,
-};
+}
 
 CalendarMonthYearSelection.defaultProps = {
   months: getMonths(),
   years: [],
   onClickCheck: () => {},
-};
+}
 
-export default CalendarMonthYearSelection;
+export default CalendarMonthYearSelection

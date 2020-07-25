@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import CalendarSVG from '../../svg/Calendar.svg';
+import React from 'react'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
+import CalendarSVG from '../../svg/Calendar.svg'
 
 const CalendarContainer = styled.section`
   position: relative;
@@ -16,8 +16,8 @@ const CalendarContainer = styled.section`
     justify-content: space-around;
     align-items: center;
   }
-`;
-const CalendarIcon = styled(CalendarSVG)``;
+`
+const CalendarIcon = styled(CalendarSVG)``
 const CalendarInfo = styled.div`
   margin-top: ${(props) => props.marginTop};
   width: ${(props) => props.width};
@@ -26,10 +26,10 @@ const CalendarInfo = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
+`
 
-const CALENDAR_INFO_ASPECT_RATIO = 1.46;
-const TOP_CALENDAR_ASPECT_RATIO = 2.36;
+const CALENDAR_INFO_ASPECT_RATIO = 1.46
+const TOP_CALENDAR_ASPECT_RATIO = 2.36
 
 const Calendar = ({ children, width }) => {
   return (
@@ -43,13 +43,13 @@ const Calendar = ({ children, width }) => {
       </CalendarInfo>
       <CalendarIcon width={width} />
     </CalendarContainer>
-  );
-};
+  )
+}
 
 Calendar.propTypes = {
   width: PropTypes.number.isRequired,
-};
+}
 
-Calendar.defaultProps = {};
+Calendar.defaultProps = {}
 
-export default Calendar;
+export default Calendar

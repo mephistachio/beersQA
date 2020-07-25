@@ -2,7 +2,7 @@
  * Calculate number of pages needed to show
  */
 export const getNumPages = ({ totalElements, elementsPerPage }) => {
-  return 9
+  return totalElements / elementsPerPage;
 }
 
 /**
@@ -15,52 +15,22 @@ export const generatePageNumbers = ({
   numPages,
   maxNumShowedPages,
 }) => {
-  if (actualPage === 1) {
+
+  let array
+  if (actualPage<numPages-2)
+{ array = Array.apply(1, {length: numPages}).map(Number.call, Number)}
     return {
-      first: null,
-      pages: [1, 2, 3, 4, 5],
-      last: 9,
+      first:null,
+      pages:array,
+      last: maxNumShowedPages
     }
-  } else if (actualPage === 2) {
-    return {
-      pages: [1, 2, 3, 4, 5],
-      last: 9,
-    }
-  } else if (actualPage === 3) {
-    return {
-      pages: [1, 2, 3, 4, 5],
-      last: 9,
-    }
-  } else if (actualPage === 4) {
-    return {
-      pages: [1, 2, 3, 4, 5],
-      last: 9,
-    }
-  } else if (actualPage === 5) {
-    return {
-      first: 1,
-      pages: [4, 5, 6],
-      last: 9,
-    }
-  } else if (actualPage === 6) {
-    return {
-      first: 1,
-      pages: [5, 6, 7, 8, 9],
-    }
-  } else if (actualPage === 7) {
-    return {
-      first: 1,
-      pages: [5, 6, 7, 8, 9],
-    }
-  } else if (actualPage === 8) {
-    return {
-      first: 1,
-      pages: [5, 6, 7, 8, 9],
-    }
-  } else if (actualPage === 9) {
-    return {
-      first: 1,
-      pages: [5, 6, 7, 8, 9],
-    }
-  }
+
+  else if (actualPage-2>numPages)
+{ array = Array.apply(1, {length: numPages}).map(Number.call, Number)}
+return {
+  first:1,
+  pages:array,
+  last: null
 }
+}
+

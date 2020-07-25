@@ -1,4 +1,4 @@
-import { setBrewedFrom, setBrewedTo, setBrewedFromTo } from '../constants';
+import { setBrewedFrom, setBrewedTo, setBrewedFromTo } from '../constants'
 
 export const initialState = {
   brewedTo: {
@@ -9,7 +9,7 @@ export const initialState = {
     month: 0,
     year: 0,
   },
-};
+}
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
@@ -17,21 +17,21 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         brewedFrom: action.brewedFrom,
-      };
+      }
     case setBrewedTo:
       return {
         ...state,
         brewedTo: action.brewedTo,
-      };
+      }
     case setBrewedFromTo:
       return {
         ...state,
         brewedFrom: action.brewed.from,
         brewedTo: action.brewed.to,
-      };
+      }
     default:
       return {
         ...state,
-      };
+      }
   }
 }

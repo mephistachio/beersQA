@@ -1,25 +1,25 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
+import { useDispatch, useSelector } from 'react-redux'
 
-import CalendarMonthYearSelection from './CalendarMonthYearSelection';
-import CalendarMonthYearView from './CalendarMonthYearView';
-import LeftArrowSVG from '../../svg/leftArrow.svg';
-import { setBrewedFrom, setBrewedTo } from '../../redux/constants';
-import { getYearsFromMinToMaxBrewed } from '../../utils/filters';
+import CalendarMonthYearSelection from './CalendarMonthYearSelection'
+import CalendarMonthYearView from './CalendarMonthYearView'
+import LeftArrowSVG from '../../svg/leftArrow.svg'
+import { setBrewedFrom, setBrewedTo } from '../../redux/constants'
+import { getYearsFromMinToMaxBrewed } from '../../utils/filters'
 
 const BrewedBetweenContainer = styled.section`
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 230px;
-`;
+`
 
 const BrewedBetweenInfo = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
+`
 
 const BrewedBetweenSeparator = styled.div`
   display: flex;
@@ -35,17 +35,17 @@ const BrewedBetweenSeparator = styled.div`
     font-size: 10px;
     margin: 5px 0px;
   }
-`;
+`
 
 const BrewedBetween = () => {
-  const dispatch = useDispatch();
-  const { beers } = useSelector((state) => state.beersReducer);
-  const { brewedFrom, brewedTo } = useSelector((state) => state.filtersReducer);
-  const [fromEdition, setFromEdition] = useState(false);
-  const [toEdition, setToEdition] = useState(false);
+  const dispatch = useDispatch()
+  const { beers } = useSelector((state) => state.beersReducer)
+  const { brewedFrom, brewedTo } = useSelector((state) => state.filtersReducer)
+  const [fromEdition, setFromEdition] = useState(false)
+  const [toEdition, setToEdition] = useState(false)
 
-  const openToCalendar = () => setToEdition(true);
-  const openFromCalendar = () => setFromEdition(true);
+  const openToCalendar = () => setToEdition(true)
+  const openFromCalendar = () => setFromEdition(true)
 
   const closeFromCalendar = ({ month, year }) => {
     dispatch({
@@ -54,9 +54,9 @@ const BrewedBetween = () => {
         month,
         year,
       },
-    });
-    setFromEdition(false);
-  };
+    })
+    setFromEdition(false)
+  }
   const closeToCalendar = ({ month, year }) => {
     dispatch({
       type: setBrewedTo,
@@ -64,9 +64,9 @@ const BrewedBetween = () => {
         month,
         year,
       },
-    });
-    setToEdition(false);
-  };
+    })
+    setToEdition(false)
+  }
 
   const getCalendar = ({ edition, year, month, years, onClick, onClose }) => {
     return (
@@ -88,10 +88,10 @@ const BrewedBetween = () => {
           </button>
         )}
       </>
-    );
-  };
+    )
+  }
 
-  const years = getYearsFromMinToMaxBrewed(beers);
+  const years = getYearsFromMinToMaxBrewed(beers)
   return (
     <BrewedBetweenContainer data-testid="brewed-between-container">
       <BrewedBetweenInfo>
@@ -119,7 +119,7 @@ const BrewedBetween = () => {
         })}
       </BrewedBetweenInfo>
     </BrewedBetweenContainer>
-  );
-};
+  )
+}
 
-export default BrewedBetween;
+export default BrewedBetween

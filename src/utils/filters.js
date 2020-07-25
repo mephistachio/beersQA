@@ -15,24 +15,30 @@ export const getBeersByBrewedFromTo = ({
   brewedFrom,
   brewedTo,
 }) => {
-  if (
-    brewedFrom.year === 2013 &&
-    brewedFrom.month === 9 &&
-    brewedTo.year === 2015 &&
-    brewedTo.month === 12
-  ) {
-    return [beers[2], beers[3], beers[11], beers[17]]
-  } else {
-    return beers
-  }
+  return beers.filter(function(beer) {
+    let beerBrewed = formatBrewed(beer.first_brewed)
+    return (beerBrewed.year === brewedFrom.year ? beerBrewed.month >= brewedFrom.month : beerBrewed.year > brewedFrom.year) &&
+     (beerBrewed.year === brewedTo.year ? beerBrewed.month <= brewedTo.month : beerBrewed.year < brewedTo.year)
+
+  })
 }
+
 
 /**
  * get the min brewed date from all beers from the in list
  * returns an object with this format { year: 2007, month: 9 }
  */
 export const getMinBrewedDate = (beers = []) => {
-  return { year: 2007, month: 9 }
+  let beersBrewed = beers.map(function(beer){return formatBrewed(beer.first_brewed)})
+  beersBrewed.sort(function (a, b) {
+    if (a.year - b.year === 0) {
+      return a.month - b.month
+    } else {
+      return a.year - b.year
+    }
+  })
+
+  return { year: beersBrewed[0].year, month: beersBrewed[0].month }
 }
 
 /**
@@ -40,7 +46,16 @@ export const getMinBrewedDate = (beers = []) => {
  * returns an object with this format { year: 2015, month: 12 }
  */
 export const getMaxBrewedDate = (beers = []) => {
-  return { year: 2015, month: 12 }
+  let beersBrewed = beers.map(function(beer){return formatBrewed(beer.first_brewed)})
+  beersBrewed.sort(function (a, b) {
+    if (a.year - b.year === 0) {
+      return b.month - a.month
+    } else {
+      return b.year - a.year
+    }
+  })
+  return { year: beersBrewed[0].year, month: beersBrewed[0].month }
+
 }
 
 export const getYearsFromMinToMaxBrewed = (beers) => {

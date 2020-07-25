@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
-import Beer from './Beer';
+import Beer from './Beer'
 
 const BeersListContainer = styled.section`
   display: flex;
@@ -15,7 +15,7 @@ const BeersListContainer = styled.section`
     font-size: 30px;
     color: red;
   }
-`;
+`
 
 const BeersList = ({ beers }) => {
   return (
@@ -24,15 +24,15 @@ const BeersList = ({ beers }) => {
         beers.map((beer) => <Beer key={beer.id} {...beer} />)}
       {(!beers || beers.length === 0) && <label>No beers found</label>}
     </BeersListContainer>
-  );
-};
+  )
+}
 
 BeersList.propTypes = {
   beers: PropTypes.array,
-};
+}
 
 BeersList.defaultProps = {
   beers: [],
-};
+}
 
-export default BeersList;
+export default BeersList

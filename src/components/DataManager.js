@@ -1,6 +1,6 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import styled from 'styled-components';
+import React from 'react'
+import { useSelector } from 'react-redux'
+import styled from 'styled-components'
 
 const Loader = styled.div`
   width: 100%;
@@ -8,7 +8,7 @@ const Loader = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
+`
 
 const Error = styled.div`
   background-color: red;
@@ -23,9 +23,9 @@ const Error = styled.div`
     color: #ffffff;
     font-size: 15px;
   }
-`;
+`
 const DataManager = ({ children }) => {
-  const { error, pending } = useSelector((state) => state.beersReducer);
+  const { error, pending } = useSelector((state) => state.beersReducer)
   return (
     <>
       {pending && (
@@ -43,7 +43,7 @@ const DataManager = ({ children }) => {
       )}
       {!pending && !error && <>{children}</>}
     </>
-  );
-};
+  )
+}
 
-export default DataManager;
+export default DataManager
