@@ -2,7 +2,10 @@
  * Calculate number of pages needed to show
  */
 export const getNumPages = ({ totalElements, elementsPerPage }) => {
-  return totalElements / elementsPerPage;
+  if (elementsPerPage === 0) {
+    return 0
+  }
+  return Math.ceil(totalElements / elementsPerPage)
 }
 
 /**
@@ -16,21 +19,27 @@ export const generatePageNumbers = ({
   maxNumShowedPages,
 }) => {
 
-  let array
-  if (actualPage<numPages-2)
-{ array = Array.apply(1, {length: numPages}).map(Number.call, Number)}
-    return {
-      first:null,
-      pages:array,
-      last: maxNumShowedPages
+  const range = function(from, to) {
+    let list = [];
+    for (let i = from; i <= to; i++) {
+      list.push(i);
     }
-
-  else if (actualPage-2>numPages)
-{ array = Array.apply(1, {length: numPages}).map(Number.call, Number)}
-return {
-  first:1,
-  pages:array,
-  last: null
+    return list;
+  }
+  let cornerPagesCount = maxNumShowedPages - 2
+  let first = 1, array, last = numPages
+  if (actualPage < cornerPagesCount) { // left pages corner case
+    first = null
+    array = range(1, cornerPagesCount)
+  } else if (actualPage > numPages - (cornerPagesCount - 1)) { // right pages corner case
+    last = null
+    array = range(numPages - (cornerPagesCount - 1), numPages)
+  } else { // pages in the middle, always show 3
+    array = [actualPage - 1, actualPage, actualPage + 1]
+  }
+  return {
+    first: first,
+    pages: array,
+    last: last,
+  }
 }
-}
-
